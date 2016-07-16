@@ -65,6 +65,8 @@
   <ItemGroup>
     <Compile Include="Assets\MainMenu\quit.cs" />
     <Compile Include="Assets\Scripts\BGScroller.cs" />
+    <Compile Include="Assets\Scripts\cameraMovement.cs" />
+    <Compile Include="Assets\Scripts\playerCode.cs" />
     <Compile Include="Assets\Scripts\swipeDetect.cs" />
     <Compile Include="Assets\TitleScreen\pressToStart.cs" />
   </ItemGroup>
