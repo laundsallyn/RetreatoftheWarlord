@@ -4,8 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class pressToStart : MonoBehaviour {
 
-public void changeScene()
+public void nextScene(string scene)
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene(scene);
     }
 }
