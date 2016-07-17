@@ -17,7 +17,8 @@ public class playerCode : MonoBehaviour {
 			spawnPoints[n] = GameObject.Find(spawnName);
 		}
 		currentSpawnIndex = 0;
-		this.transform.position = spawnPoints[currentSpawnIndex].transform.position;
+		this.transform.position = (spawnPoints[currentSpawnIndex].transform.position + new Vector3(0,1,0));
+
 		
 				
 	}
@@ -37,5 +38,14 @@ public class playerCode : MonoBehaviour {
 	void Update () 
 	{
 	
+	}
+	void OnCollisionEnter(Collision col)
+	{
+		// Debug.	Log(col.gameObject.name);
+		if(col.gameObject.name == "Enemy(Clone)")
+		{
+			Debug.Log("Game over nerd");	
+			Debug.Break();
+		}
 	}
 }

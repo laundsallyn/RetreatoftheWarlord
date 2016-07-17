@@ -33,7 +33,7 @@ public class enemySpawnBehavior : MonoBehaviour
 		{
 			enemyPerfab.GetComponent<enemyCode>().spawn = enemySpawns[spawnIndex];
 			enemyPerfab.GetComponent<enemyCode>().spawnIndex = spawnIndex;
-			Instantiate(enemyPerfab, enemySpawns[spawnIndex].transform.position, enemySpawns[spawnIndex].transform.rotation);
+			Instantiate(enemyPerfab, (enemySpawns[spawnIndex].transform.position + new Vector3(0,.8f,0)), enemySpawns[spawnIndex].transform.rotation);
 		}
 
 	}

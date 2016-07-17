@@ -12,6 +12,7 @@ public class swipeDetect : MonoBehaviour
 	Vector2 currentSwipe;
 	public GameObject player;
 	private playerCode playerCode; 
+	public Vector3 offset;
 	//Based on the swipe direction we will change the characters row (river row)
 	public static Swipe swipeDirection;
 	void Start()
@@ -96,25 +97,25 @@ public class swipeDetect : MonoBehaviour
         if (currentSwipe.y > 0 &&( currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)) 
         {
         	swipeDirection = Swipe.Up;
-            Debug.Log("up swipe");
+            // Debug.Log("up swipe");
         }
         //swipe down
         else if (currentSwipe.y < 0 && (currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)) 
         {
         	swipeDirection = Swipe.Down;
-            Debug.Log("down swipe");
+            // Debug.Log("down swipe");
         }
         //swipe left
         else if (currentSwipe.x < 0 && (currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)) 
         {
         	swipeDirection = Swipe.Left;
-            Debug.Log("left swipe");
+            // Debug.Log("left swipe");
         }
         //swipe right
        else if (currentSwipe.x > 0 && (currentSwipe.y > -0.5f && currentSwipe.y < 0.5f))
         {
         	swipeDirection = Swipe.Right;
-            Debug.Log("right swipe");
+            // Debug.Log("right swipe");
         }
     }
     	else{
@@ -145,8 +146,8 @@ public class swipeDetect : MonoBehaviour
 			tempIndex--;
 		}
 		//Animate later
-		Debug.Log(tempIndex);
-		player.transform.position = playerC.getSpawnPoints()[tempIndex].transform.position;
+		// Debug.Log(tempIndex);
+		player.transform.position = (playerC.getSpawnPoints()[tempIndex].transform.position + offset);
 		playerC.setSpawnIndex(tempIndex);
 	}
 }
