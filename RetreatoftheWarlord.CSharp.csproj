@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\changeScene.cs" />
     <Compile Include="Assets\Scripts\fading.cs" />
     <Compile Include="Assets\Scripts\quit.cs" />
+    <Compile Include="Assets\Scripts\restoreToggleState.cs" />
     <Compile Include="Assets\Scripts\swipeDetect.cs" />
     <Compile Include="Assets\TitleScreen\pressToStart.cs" />
   </ItemGroup>
