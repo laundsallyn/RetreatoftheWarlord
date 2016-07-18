@@ -23,7 +23,7 @@ public class audioSwitch : MonoBehaviour {
         if (PlayerPrefs.GetInt("BGM") == 1)
         {
             if(inSettings)
-                BGMtog.isOn = false;
+                BGMtog.isOn = true ;
             AudioListener.pause = false;
         }
         else {
