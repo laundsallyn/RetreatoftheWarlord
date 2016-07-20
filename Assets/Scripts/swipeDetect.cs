@@ -129,19 +129,19 @@ public class swipeDetect : MonoBehaviour
 		int tempIndex = playerC.getSpawnIndex();
 
 
-		if(tempIndex == 0 && swipeDirection == Swipe.Left)
+		if(tempIndex == 0 && swipeDirection == Swipe.Up)
 		{
 			//Do nothing
 		}
-		else if(tempIndex == 4 && swipeDirection == Swipe.Right)
+		else if(tempIndex == 4 && swipeDirection == Swipe.Down)
 		{
 			//Do Nothing
 		}
-		else if(swipeDirection == Swipe.Right)
+		else if(swipeDirection == Swipe.Up)
 		{
 			tempIndex++;
 		}
-		else 
+		else if(swipeDirection == Swipe.Down)
 		{
 			tempIndex--;
 		}
