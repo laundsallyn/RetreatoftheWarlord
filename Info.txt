@@ -1,0 +1,33 @@
+Team Members:
+Adam Miller
+Yipu Wang 
+
+Instructions:
+
+When in game you want to swipe up and down to change your lane. You are trying to avoid the obstacles for as long as you can. Once it is game over you can return to the main menu and restart the game via there. 
+
+List of Features:
+
+	Title Scene
+	Main Menu Scene
+	Settings Scene
+	Game Scene
+	Gameover Scene
+	Disable/Enable BGM
+	Basic Game Logic
+
+List of Classes we wrote:
+	 audioSwitch -Yipu
+	 BGScroller -Adam
+	 cameraMovement - Adam
+	 changeScene - Yipu
+	 checkSetting - Yipu
+	 enemyCode - Adam
+	 enemySpawnBehavior - Adam
+	 playerCode - Adam
+	 quit - Yipu
+	 restoreToggleState -Yipu
+
+List of Classes we didn't write:
+	fading
+	swipeDetect
