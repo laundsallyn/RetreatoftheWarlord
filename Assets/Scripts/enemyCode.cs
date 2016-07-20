@@ -43,7 +43,7 @@ public class enemyCode : MonoBehaviour
   
              targetPos = transform.position + (targetDirection.normalized * interpVelocity * Time.deltaTime); 
   
-             transform.position = Vector3.Lerp( transform.position, targetPos + offset, 0.3f);
+             transform.position = Vector3.Lerp( transform.position, targetPos + offset, 0.2f);
 
          }
 	}
