@@ -137,16 +137,16 @@ public class swipeDetect : MonoBehaviour
 		{
 			//Do Nothing
 		}
-		else if(swipeDirection == Swipe.Up)
+		else if(swipeDirection == Swipe.Down)
 		{
 			tempIndex++;
 		}
-		else if(swipeDirection == Swipe.Down)
+		else if(swipeDirection == Swipe.Up)
 		{
 			tempIndex--;
 		}
 		//Animate later
-		// Debug.Log(tempIndex);
+		Debug.Log(tempIndex);
 		player.transform.position = (playerC.getSpawnPoints()[tempIndex].transform.position + offset);
 		playerC.setSpawnIndex(tempIndex);
 	}
