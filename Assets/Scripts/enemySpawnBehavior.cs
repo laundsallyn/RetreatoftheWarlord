@@ -17,7 +17,8 @@ public class enemySpawnBehavior : MonoBehaviour
 		 {
 		 	enemySpawns[n] = GameObject.Find("EnemySpawn" + (n+1));
 		 }
-		 InvokeRepeating("spawnEnemy", 2, 1);
+		 //Spawn rate 
+		 InvokeRepeating("spawnEnemy", 3, 1);
 	}
 	
 	// Update is called once per frame
@@ -33,7 +34,7 @@ public class enemySpawnBehavior : MonoBehaviour
 		{
 			enemyPerfab.GetComponent<enemyCode>().spawn = enemySpawns[spawnIndex];
 			enemyPerfab.GetComponent<enemyCode>().spawnIndex = spawnIndex;
-			Instantiate(enemyPerfab, (enemySpawns[spawnIndex].transform.position + new Vector3(.7f,.8f,0)), enemySpawns[spawnIndex].transform.rotation);
+			Instantiate(enemyPerfab, (enemySpawns[spawnIndex].transform.position + new Vector3(0,.5f,0)), enemySpawns[spawnIndex].transform.rotation);
 		}
 
 	}

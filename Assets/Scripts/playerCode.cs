@@ -7,7 +7,7 @@ public class playerCode : MonoBehaviour {
 	//All the preset points the player can be located at
 	private GameObject[] spawnPoints = new GameObject[5];
 	//Current position the player is 
-	private int currentSpawnIndex;
+	public int currentSpawnIndex;
 	void Start () 
 	{
 		string spawnName = "Spawn";
@@ -16,8 +16,7 @@ public class playerCode : MonoBehaviour {
 			spawnName = "Spawn" + (n+1);
 			spawnPoints[n] = GameObject.Find(spawnName);
 		}
-		currentSpawnIndex = 0;
-		this.transform.position = (spawnPoints[currentSpawnIndex].transform.position + new Vector3(0,1,0));
+		this.transform.position = (spawnPoints[currentSpawnIndex].transform.position + new Vector3(0,.5f,0));
 
 		
 				
