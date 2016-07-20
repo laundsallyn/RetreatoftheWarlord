@@ -1,45 +1,28 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 // Toggles always start with checked!
 public class audioSwitch : MonoBehaviour {
-    Toggle BGMtog,SFXtog;
-    Scene now;
+    Button BGMbut,SFXbut;
     void Awake()
     {
-        bool inSettings = now.name == "Settings";
-        now = SceneManager.GetActiveScene();
-        if(inSettings)
-        {
-            BGMtog = GameObject.FindGameObjectWithTag("BGM").GetComponent<Toggle>();
-            SFXtog = GameObject.FindGameObjectWithTag("SFX").GetComponent<Toggle>();
-        }
-
-
-        //Debug.Log("This is BGMtog");
-        //Debug.Log("This is SFXtog");
+        BGMbut = GameObject.FindGameObjectWithTag("BGM").GetComponent<Button>();
+        SFXbut = GameObject.FindGameObjectWithTag("SFX").GetComponent<Button>();
 
         if (PlayerPrefs.GetInt("BGM") == 1)
         {
-            if(inSettings)
-                BGMtog.isOn = true ;
+            BGMbut.GetComponentInChildren<Text>().text = "on";
             AudioListener.pause = false;
-        }
-        else {
-            if (inSettings)
-                BGMtog.isOn = false;
+        } else {
+            BGMbut.GetComponentInChildren<Text>().text = "off";
             AudioListener.pause = true;
-
         }
 
         //still need to add controls for SFX
         if (PlayerPrefs.GetInt("SFX") == 1)
-            if (inSettings)
-                SFXtog.isOn = true;
+            SFXbut.GetComponentInChildren<Text>().text = "on";
         else
-            if (inSettings)
-                SFXtog.isOn = false;
+            SFXbut.GetComponentInChildren<Text>().text = "off";
     }
 
     public void BGMControl ()
@@ -48,26 +31,29 @@ public class audioSwitch : MonoBehaviour {
         {
             AudioListener.pause = false;
             PlayerPrefs.SetInt("BGM", 1);
+            BGMbut.GetComponentInChildren<Text>().text = "on";
         }
         else
         {
             AudioListener.pause = true;
             PlayerPrefs.SetInt("BGM", 0);
+            BGMbut.GetComponentInChildren<Text>().text = "off";
         }
         PlayerPrefs.Save();
     }
 
     public void SFXControl()
     {
-        if (SFXtog.isOn)
-        {
-            PlayerPrefs.SetInt("SFX", 1);
+        if (SFXbut.GetComponentInChildren<Text>().text == "on") {
+            PlayerPrefs.SetInt("SFX", 0);
+            SFXbut.GetComponentInChildren<Text>().text = "off";
         }
         else
         {
-            PlayerPrefs.SetInt("SFX", 0);
-
+            PlayerPrefs.SetInt("SFX", 1);
+            SFXbut.GetComponentInChildren<Text>().text = "on";
         }
+        
     }
 
 }
