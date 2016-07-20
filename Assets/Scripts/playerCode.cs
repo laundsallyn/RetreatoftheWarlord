@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class playerCode : MonoBehaviour {
@@ -45,7 +45,7 @@ public class playerCode : MonoBehaviour {
 		if(col.gameObject.name == "Enemy(Clone)")
 		{
 			Debug.Log("Game over nerd");	
-			Debug.Break();
+			// Debug.Break();	
 		}
 	}
 }
