@@ -10,21 +10,30 @@ public class swipeDetect : MonoBehaviour
 	Vector2 firstPressPos;
 	Vector2 secondPressPos;
 	Vector2 currentSwipe;
-
+	public GameObject player;
+	private playerCode playerCode; 
+	public Vector3 offset;
 	//Based on the swipe direction we will change the characters row (river row)
 	public static Swipe swipeDirection;
+	void Start()
+	{
+	}
 
 	// Update is called once per frame
 	void Update () 
 	{
 		detectSwipe();
+		if(swipeDirection != Swipe.None)
+			handleCharacter();
 	}
 	public void detectSwipe ()
 	{
-		if (Input.touches.Length > 0) {
+		if (Input.touches.Length > 0) 
+		{
 			Touch t = Input.GetTouch(0);
 
-			if (t.phase == TouchPhase.Began) {
+			if (t.phase == TouchPhase.Began) 
+			{
 				firstPressPos = new Vector2(t.position.x, t.position.y);
 			}
 
@@ -43,30 +52,102 @@ public class swipeDetect : MonoBehaviour
 				currentSwipe.Normalize();
 
 				// Swipe up
-				if (currentSwipe.y > 0 &&( currentSwipe.x > -0.5f || currentSwipe.x < 0.5f)) 
+				if (currentSwipe.y > 0 &&( currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)) 
 				{
 					swipeDirection = Swipe.Up;
 					// Swipe down
 				} 
-				else if (currentSwipe.y < 0 && (currentSwipe.x > -0.5f || currentSwipe.x < 0.5f)) 
+				else if (currentSwipe.y < 0 && (currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)) 
 				{
 					swipeDirection = Swipe.Down;
 					// Swipe left
 				} 
-				else if (currentSwipe.x < 0 && (currentSwipe.y > -0.5f || currentSwipe.y < 0.5f)) 
+				else if (currentSwipe.x < 0 && (currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)) 
 				{
 					swipeDirection = Swipe.Left;
 					// Swipe right
 				} 
-				else if (currentSwipe.x > 0 && (currentSwipe.y > -0.5f || currentSwipe.y < 0.5f))
+				else if (currentSwipe.x > 0 && (currentSwipe.y > -0.5f && currentSwipe.y < 0.5f))
 				{
 					swipeDirection = Swipe.Right;
 				}
+
+	
 			}
 		} 
 		else 
 		{
+			  if(Input.GetMouseButtonDown(0))
+     {
+         //save began touch 2d point
+        firstPressPos = new Vector2(Input.mousePosition.x,Input.mousePosition.y);
+     }
+		if(Input.GetMouseButtonUp(0))
+     {
+            //save ended touch 2d point
+        secondPressPos = new Vector2(Input.mousePosition.x,Input.mousePosition.y);
+       
+            //create vector from the two points
+        currentSwipe = new Vector2(secondPressPos.x - firstPressPos.x, secondPressPos.y - firstPressPos.y);
+           
+        //normalize the 2d vector
+        currentSwipe.Normalize();
+ 
+        //swipe upwards
+        if (currentSwipe.y > 0 &&( currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)) 
+        {
+        	swipeDirection = Swipe.Up;
+            // Debug.Log("up swipe");
+        }
+        //swipe down
+        else if (currentSwipe.y < 0 && (currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)) 
+        {
+        	swipeDirection = Swipe.Down;
+            // Debug.Log("down swipe");
+        }
+        //swipe left
+        else if (currentSwipe.x < 0 && (currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)) 
+        {
+        	swipeDirection = Swipe.Left;
+            // Debug.Log("left swipe");
+        }
+        //swipe right
+       else if (currentSwipe.x > 0 && (currentSwipe.y > -0.5f && currentSwipe.y < 0.5f))
+        {
+        	swipeDirection = Swipe.Right;
+            // Debug.Log("right swipe");
+        }
+    }
+    	else{
 			swipeDirection = Swipe.None;   
+    	}
 		}
+	}
+	public void handleCharacter()
+	{
+		playerCode playerC = player.GetComponent<playerCode>();
+		int tempIndex = playerC.getSpawnIndex();
+
+
+		if(tempIndex == 0 && swipeDirection == Swipe.Left)
+		{
+			//Do nothing
+		}
+		else if(tempIndex == 4 && swipeDirection == Swipe.Right)
+		{
+			//Do Nothing
+		}
+		else if(swipeDirection == Swipe.Right)
+		{
+			tempIndex++;
+		}
+		else 
+		{
+			tempIndex--;
+		}
+		//Animate later
+		// Debug.Log(tempIndex);
+		player.transform.position = (playerC.getSpawnPoints()[tempIndex].transform.position + offset);
+		playerC.setSpawnIndex(tempIndex);
 	}
 }

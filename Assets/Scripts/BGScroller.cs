@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Done_BGScroller : MonoBehaviour
+public class BGScroller : MonoBehaviour
 {
     public float scrollSpeed;
     public float tileSizeZ;
@@ -15,7 +15,11 @@ public class Done_BGScroller : MonoBehaviour
 
     void Update()
     {
-        float newPosition = Mathf.Repeat(Time.time * scrollSpeed, tileSizeZ);
-        transform.position = startPosition + Vector3.forward * newPosition;
+        Vector2 offset = new Vector2(Time.time * scrollSpeed, 0);
+
+        GetComponent<Renderer>().material.mainTextureOffset = offset;
+
+        // float newPosition = Mathf.Repeat(Time.time * scrollSpeed, tileSizeZ);
+        // transform.position = startPosition + Vector3.right * newPosition;
     }
 }
