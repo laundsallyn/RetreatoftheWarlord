@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\enemyCode.cs" />
     <Compile Include="Assets\Scripts\enemySpawnBehavior.cs" />
     <Compile Include="Assets\Scripts\fading.cs" />
+    <Compile Include="Assets\Scripts\pause.cs" />
     <Compile Include="Assets\Scripts\playerCode.cs" />
     <Compile Include="Assets\Scripts\quit.cs" />
     <Compile Include="Assets\Scripts\restoreToggleState.cs" />
