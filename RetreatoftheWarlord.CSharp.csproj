@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\cameraMovement.cs" />
     <Compile Include="Assets\Scripts\changeScene.cs" />
     <Compile Include="Assets\Scripts\checkSetting.cs" />
+    <Compile Include="Assets\Scripts\dontDestroy.cs" />
     <Compile Include="Assets\Scripts\enemyCode.cs" />
     <Compile Include="Assets\Scripts\enemySpawnBehavior.cs" />
     <Compile Include="Assets\Scripts\fading.cs" />
@@ -78,6 +79,7 @@
     <Compile Include="Assets\Scripts\restoreToggleState.cs" />
     <Compile Include="Assets\Scripts\swipeDetect.cs" />
     <Compile Include="Assets\TitleScreen\pressToStart.cs" />
+    <Compile Include="Assets\dont.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

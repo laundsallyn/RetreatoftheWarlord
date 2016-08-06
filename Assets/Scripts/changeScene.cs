@@ -7,6 +7,8 @@ public class changeScene : MonoBehaviour {
 
     public void nextScene(string scene)
     {
+        if(GameObject.Find("HIT")!= null && !(scene.Equals("GameOver")))
+            Destroy(GameObject.Find("HIT"));        
         SceneManager.LoadScene(scene);
     }
 

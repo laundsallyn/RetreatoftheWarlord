@@ -15,6 +15,8 @@ public class swipeDetect : MonoBehaviour
 	public Vector3 offset;
 	//Based on the swipe direction we will change the characters row (river row)
 	public static Swipe swipeDirection;
+
+
 	void Start()
 	{
 	}
@@ -144,10 +146,12 @@ public class swipeDetect : MonoBehaviour
 		}
 		else if(swipeDirection == Swipe.Down)
 		{
+			player.GetComponent<AudioSource>().Play();
 			tempIndex++;
 		}
 		else if(swipeDirection == Swipe.Up)
 		{
+			player.GetComponent<AudioSource>().Play();
 			tempIndex--;
 		}
 		//Animate later

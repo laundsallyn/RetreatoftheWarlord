@@ -43,7 +43,8 @@ public class playerCode : MonoBehaviour {
 		// Debug.	Log(col.gameObject.name);
 		if(col.gameObject.name == "Enemy1(Clone)" ||col.gameObject.name == "Enemy2(Clone)" )
 		{
-			// GameObject.Find("Main Camera").GetComponent<changeScene>().nextScene("GameOver");	
+			GameObject.Find("HIT").GetComponent<AudioSource>().Play();
+			GameObject.Find("Main Camera").GetComponent<changeScene>().nextScene("GameOver");	
 			// Debug.Break();	
 		}
 	}
