@@ -1,9 +1,9 @@
 ﻿<Properties StartupItem="RetreatoftheWarlord.CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\swipeDetect.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\enemySpawnBehavior.cs">
     <Files>
+      <File FileName="Assets\Scripts\enemySpawnBehavior.cs" Line="46" Column="1" />
       <File FileName="Assets\Scripts\swipeDetect.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\enemySpawnBehavior.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\enemyCode.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
