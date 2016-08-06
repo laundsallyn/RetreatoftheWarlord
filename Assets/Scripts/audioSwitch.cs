@@ -12,13 +12,13 @@ public class audioSwitch : MonoBehaviour {
         if (PlayerPrefs.GetInt("BGM") == 1)
         {
             BGMbut.GetComponentInChildren<Text>().text = "on";
-            // Camera.main.GetComponent<AudioSource>().Play();
-            AudioListener.pause = false;
+            Camera.main.GetComponent<AudioSource>().Play();
+            // AudioListener.pause = false;
 
         } else {
             BGMbut.GetComponentInChildren<Text>().text = "off";
-            AudioListener.pause = true;
-            // Camera.main.GetComponent<AudioSource>().Stop();
+            // AudioListener.pause = true;
+            Camera.main.GetComponent<AudioSource>().Pause();
         }
 
         //still need to add controls for SFX
@@ -32,15 +32,15 @@ public class audioSwitch : MonoBehaviour {
     {
         if (BGMbut.GetComponentInChildren<Text>().text.Equals("off"))
         {
-            AudioListener.pause = false;
-            // Camera.main.GetComponent<AudioSource>().Play();
+            // AudioListener.pause = false;
+            Camera.main.GetComponent<AudioSource>().Play();
             PlayerPrefs.SetInt("BGM", 1);
             BGMbut.GetComponentInChildren<Text>().text = "on";
         }
         else
         {
-            AudioListener.pause = true;
-            // Camera.main.GetComponent<AudioSource>().Stop();
+            // AudioListener.pause = true;
+            Camera.main.GetComponent<AudioSource>().Pause();
             PlayerPrefs.SetInt("BGM", 0);
             BGMbut.GetComponentInChildren<Text>().text = "off";
         }
