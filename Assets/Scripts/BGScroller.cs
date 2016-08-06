@@ -15,9 +15,12 @@ public class BGScroller : MonoBehaviour
 
     void Update()
     {
-        Vector2 offset = new Vector2(Time.time * scrollSpeed, 0);
+        if(PlayerPrefs.GetInt("Pause")!=1)
+        {
+            Vector2 offset = new Vector2(Time.time * scrollSpeed, 0);
+            GetComponent<Renderer>().material.mainTextureOffset = offset;
+        }
 
-        GetComponent<Renderer>().material.mainTextureOffset = offset;
 
         // float newPosition = Mathf.Repeat(Time.time * scrollSpeed, tileSizeZ);
         // transform.position = startPosition + Vector3.right * newPosition;

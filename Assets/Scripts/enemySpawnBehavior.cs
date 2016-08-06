@@ -18,12 +18,18 @@ public class enemySpawnBehavior : MonoBehaviour
 		 	enemySpawns[n] = GameObject.Find("EnemySpawn" + (n+1));
 		 }
 		 //Spawn rate 
-		 InvokeRepeating("spawnEnemy", 3, 1);
+		 InvokeRepeating("spawnEnemy", 3, 1.5f);
 	}
 	
+	public void invokeRepeat()
+	{
+		InvokeRepeating("spawnEnemy", 0.5f, 1.5f);
+	}
 	// Update is called once per frame
 	void Update() 
 	{
+		if(PlayerPrefs.GetInt("Pause")==1)
+			CancelInvoke();
 
 	}
 	public void spawnEnemy()
