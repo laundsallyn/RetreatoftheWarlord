@@ -26,11 +26,9 @@ public class DisableCanvas : MonoBehaviour {
         screen.SetActive(false);
     }
 
-    public void Update()
+    public void dismissTutorial()
     {
-        if (Time.time > 6)
             tutorial.SetActive(false);
-
     }
     // Update is called once per frame
     //void Update()
