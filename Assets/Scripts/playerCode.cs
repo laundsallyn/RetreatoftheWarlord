@@ -41,7 +41,7 @@ public class playerCode : MonoBehaviour {
 	void OnCollisionEnter(Collision col)
 	{
 		// Debug.	Log(col.gameObject.name);
-		if(col.gameObject.name == "Enemy(Clone)")
+		if(col.gameObject.name == "Enemy1(Clone)" ||col.gameObject.name == "Enemy2(Clone)" )
 		{
 			// GameObject.Find("Main Camera").GetComponent<changeScene>().nextScene("GameOver");	
 			// Debug.Break();	
