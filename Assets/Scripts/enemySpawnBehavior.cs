@@ -3,7 +3,7 @@ using System.Collections;
 
 public class enemySpawnBehavior : MonoBehaviour 
 {
-	public GameObject enemyPerfab;
+	public GameObject[] enemyPerfabs = new GameObject[2];
 	private enemyCode code;
 	private GameObject[] enemySpawns = new GameObject[5];
 	// Use this for initialization
@@ -18,23 +18,35 @@ public class enemySpawnBehavior : MonoBehaviour
 		 	enemySpawns[n] = GameObject.Find("EnemySpawn" + (n+1));
 		 }
 		 //Spawn rate 
-		 InvokeRepeating("spawnEnemy", 3, 1);
+		 InvokeRepeating("spawnEnemy", 3, 1.75f);
 	}
 	
+	public void invokeRepeat()
+	{
+		InvokeRepeating("spawnEnemy", 0.5f, 1.75f);
+	}
 	// Update is called once per frame
 	void Update() 
 	{
+		if(PlayerPrefs.GetInt("Pause")==1)
+			CancelInvoke();
 
 	}
 	public void spawnEnemy()
 	{
 		int spawnIndex = Random.Range(0,5);
+		int typeEnemy = Random.Range(0,2);
+		Vector3 offset;
+		if(typeEnemy==1)
+			offset = new Vector3(0,0.25f,0);
+		else
+			offset = new Vector3(0,0,0);
 		// Debug.Log("EnemySpawning at " + spawnIndex);
 		if(enemySpawns[spawnIndex] != null)
 		{
-			enemyPerfab.GetComponent<enemyCode>().spawn = enemySpawns[spawnIndex];
-			enemyPerfab.GetComponent<enemyCode>().spawnIndex = spawnIndex;
-			Instantiate(enemyPerfab, (enemySpawns[spawnIndex].transform.position), enemySpawns[spawnIndex].transform.rotation);
+			enemyPerfabs[typeEnemy].GetComponent<enemyCode>().spawn = enemySpawns[spawnIndex];
+			enemyPerfabs[typeEnemy].GetComponent<enemyCode>().spawnIndex = spawnIndex;
+			Instantiate(enemyPerfabs[typeEnemy], (enemySpawns[spawnIndex].transform.position+offset), enemySpawns[spawnIndex].transform.rotation);
 		}
 
 	}

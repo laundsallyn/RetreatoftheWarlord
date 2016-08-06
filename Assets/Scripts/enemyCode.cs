@@ -25,7 +25,8 @@ public class enemyCode : MonoBehaviour
 	// Update is called once per frame
 	void Update() 
 	{
-		handleMovement();
+		if(PlayerPrefs.GetInt("Pause")!=1)
+			handleMovement();
 		if(gameObject&&transform.position.x > (targetPos+offset).x)
 			Destroy(gameObject);
 	}
@@ -36,6 +37,7 @@ public class enemyCode : MonoBehaviour
 		 if (target)
          {
              Vector3 posNoZ = transform.position;
+             posNoZ.z = target.transform.position.z;
   
              Vector3 targetDirection = (target.transform.position - posNoZ);
   

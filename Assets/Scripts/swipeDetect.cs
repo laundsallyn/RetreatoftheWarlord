@@ -28,6 +28,11 @@ public class swipeDetect : MonoBehaviour
 	}
 	public void detectSwipe ()
 	{
+		if(PlayerPrefs.GetInt("Pause")==1)
+		{
+			swipeDirection = Swipe.None;
+			return;
+		}
 		if (Input.touches.Length > 0) 
 		{
 			Touch t = Input.GetTouch(0);

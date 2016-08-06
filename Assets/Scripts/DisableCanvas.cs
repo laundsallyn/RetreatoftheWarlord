@@ -9,6 +9,7 @@ public class DisableCanvas : MonoBehaviour {
         screen.SetActive(false);
         PlayerPrefs.SetInt("Pause", 0);
         PlayerPrefs.Save();
+        GameObject.Find("EnemyPoints").GetComponent<enemySpawnBehavior>().invokeRepeat();
     }
     public void pauseGame()
     {
