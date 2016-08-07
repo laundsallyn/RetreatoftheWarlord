@@ -7,10 +7,13 @@ public class checkSetting : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("BGM") == 1)
         {
-            AudioListener.pause = false;
+            Camera.main.GetComponent<AudioSource>().Play();
+            // AudioListener.pause = false;
         }
-        else {
-            AudioListener.pause = true;
+        else 
+        {
+            Camera.main.GetComponent<AudioSource>().Pause();
+            // AudioListener.pause = true;
         }
     }
 
