@@ -25,9 +25,13 @@ public class audioSwitch : MonoBehaviour {
 
         //still need to add controls for SFX
         if (PlayerPrefs.GetInt("SFX") == 1)
+        {
             SFXbut.GetComponentInChildren<Text>().text = "on";
+        }
         else
+        {
             SFXbut.GetComponentInChildren<Text>().text = "off";
+        }
     }
 
     public void BGMControl ()
