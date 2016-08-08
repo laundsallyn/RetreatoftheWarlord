@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class DisableCanvas : MonoBehaviour {
-    public GameObject screen;
+    public GameObject screen, tutorial;
 
 
 	public void resume()
@@ -28,15 +28,12 @@ public class DisableCanvas : MonoBehaviour {
     {
         print("Awake is called");
         screen.SetActive(false);
+        if (PlayerPrefs.GetInt("Tutorial") == 0)
+            dismissTutorial()   ;
     }
 
-    // Update is called once per frame
-    //void Update()
-    //{
-    //    if (paused)
-    //        screen.SetActive(false);
-    //    else
-    //        screen.SetActive(true);
-
-    //}
+    public void dismissTutorial()
+    {
+        tutorial.SetActive(false);
+    }
 }
