@@ -3,11 +3,12 @@ using System.Collections;
 using UnityEngine.UI;
 // Toggles always start with checked!
 public class audioSwitch : MonoBehaviour {
-    Button BGMbut,SFXbut;
+    Button BGMbut,SFXbut,Tutbut;
     void Awake()
     {
         BGMbut = GameObject.FindGameObjectWithTag("BGM").GetComponent<Button>();
         SFXbut = GameObject.FindGameObjectWithTag("SFX").GetComponent<Button>();
+        Tutbut = GameObject.FindGameObjectWithTag("TUT").GetComponent<Button>();
 
         if (PlayerPrefs.GetInt("BGM") == 1)
         {
@@ -32,6 +33,11 @@ public class audioSwitch : MonoBehaviour {
         {
             SFXbut.GetComponentInChildren<Text>().text = "off";
         }
+
+        if (PlayerPrefs.GetInt("Tutorial") == 1)   
+            Tutbut.GetComponentInChildren<Text>().text = "on";
+        else
+            Tutbut.GetComponentInChildren<Text>().text = "off";
     }
 
     public void BGMControl ()
@@ -65,6 +71,20 @@ public class audioSwitch : MonoBehaviour {
             SFXbut.GetComponentInChildren<Text>().text = "on";
         }
         
+    }
+    public void TutControl()
+    {
+        if (Tutbut.GetComponentInChildren<Text>().text == "on")
+        {
+            PlayerPrefs.SetInt("Tutorial", 0);
+            Tutbut.GetComponentInChildren<Text>().text = "off";
+        }
+        else
+        {
+            PlayerPrefs.SetInt("Tutorial",1);
+            Tutbut.GetComponentInChildren<Text>().text = "on";
+        }
+
     }
 
 }
