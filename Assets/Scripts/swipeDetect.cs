@@ -132,6 +132,7 @@ public class swipeDetect : MonoBehaviour
 	}
 	public void handleCharacter()
 	{
+
 		playerCode playerC = player.GetComponent<playerCode>();
 		int tempIndex = playerC.getSpawnIndex();
 
@@ -158,5 +159,7 @@ public class swipeDetect : MonoBehaviour
 		Debug.Log(tempIndex);
 		player.transform.position = (playerC.getSpawnPoints()[tempIndex].transform.position + offset);
 		playerC.setSpawnIndex(tempIndex);
-	}
+		
+    }
+
 }
