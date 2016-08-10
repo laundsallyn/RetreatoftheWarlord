@@ -8,7 +8,14 @@ public class changeScene : MonoBehaviour {
     public void nextScene(string scene)
     {
         if(GameObject.Find("HIT")!= null && !(scene.Equals("GameOver")))
-            Destroy(GameObject.Find("HIT"));        
+            Destroy(GameObject.Find("HIT"));
+        if(Time.timeScale==0)
+        {
+            PlayerPrefs.SetInt("Pause", 0);
+            PlayerPrefs.Save();
+            Time.timeScale=1;       
+            Debug.Log("WAITING UP"); 
+        }
         SceneManager.LoadScene(scene);
     }
 

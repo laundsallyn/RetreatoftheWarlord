@@ -32,6 +32,7 @@ public class swipeDetect : MonoBehaviour
 	{
 		if(PlayerPrefs.GetInt("Pause")==1)
 		{
+			print("Still paused");
 			swipeDirection = Swipe.None;
 			return;
 		}
