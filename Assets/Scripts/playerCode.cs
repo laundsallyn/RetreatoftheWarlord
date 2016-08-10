@@ -1,8 +1,9 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class playerCode : MonoBehaviour {
-
+    public Text score;
 	// Use this for initialization
 	//All the preset points the player can be located at
 	private GameObject[] spawnPoints = new GameObject[5];
@@ -40,8 +41,10 @@ public class playerCode : MonoBehaviour {
 	}
 	void OnCollisionEnter(Collision col)
 	{
-		// Debug.	Log(col.gameObject.name);
-		if(col.gameObject.name == "Enemy1(Clone)" ||col.gameObject.name == "Enemy2(Clone)" )
+        PlayerPrefs.SetString("Score", score.text);
+        PlayerPrefs.Save();
+        // Debug.	Log(col.gameObject.name);
+        if (col.gameObject.name == "Enemy1(Clone)" ||col.gameObject.name == "Enemy2(Clone)" )
 		{
 			GameObject.Find("HIT").GetComponent<AudioSource>().Play();
 			GameObject.Find("Main Camera").GetComponent<changeScene>().nextScene("GameOver");	
