@@ -4,7 +4,6 @@ using System.Collections;
 public class DisableCanvas : MonoBehaviour {
     public GameObject screen, tutorial;
 
-
 	public void resume()
     {     
         print("Resuming");
@@ -13,7 +12,7 @@ public class DisableCanvas : MonoBehaviour {
         PlayerPrefs.SetInt("Pause", 0);
         PlayerPrefs.Save();
         GameObject.Find("EnemyPoints").GetComponent<enemySpawnBehavior>().invokeRepeat();
-        Time.timeScale= 1;
+        Time.timeScale= GameObject.Find("EnemyPoints").GetComponent<enemySpawnBehavior>().newTimeScale;
     }
     public void pauseGame()
     {     
@@ -29,7 +28,7 @@ public class DisableCanvas : MonoBehaviour {
         print("Awake is called");
         screen.SetActive(false);
         if (PlayerPrefs.GetInt("Tutorial") == 0)
-            dismissTutorial()   ;
+            dismissTutorial();
     }
 
     public void dismissTutorial()

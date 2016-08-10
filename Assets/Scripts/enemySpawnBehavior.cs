@@ -6,6 +6,8 @@ public class enemySpawnBehavior : MonoBehaviour
 	public GameObject[] enemyPerfabs = new GameObject[2];
 	private enemyCode code;
 	private GameObject[] enemySpawns = new GameObject[5];
+	public float newTimeScale;
+	private int numberofMinutes;
 	// Use this for initialization
 	void Start() 
 	{
@@ -19,6 +21,8 @@ public class enemySpawnBehavior : MonoBehaviour
 		 }
 		 //Spawn rate 
 		 InvokeRepeating("spawnEnemy", 3, 1.75f);
+		 numberofMinutes = 1;
+		 newTimeScale = 1;
 	}
 	
 	public void invokeRepeat()
@@ -31,6 +35,12 @@ public class enemySpawnBehavior : MonoBehaviour
 		if(PlayerPrefs.GetInt("Pause")==1)
 			CancelInvoke();
 
+		if(Time.time> 50.0f*numberofMinutes )
+        {
+            newTimeScale = newTimeScale +  0.2f;
+            Time.timeScale = newTimeScale;
+            numberofMinutes +=1;
+        }
 	}
 	public void spawnEnemy()
 	{
