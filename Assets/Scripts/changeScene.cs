@@ -9,7 +9,7 @@ public class changeScene : MonoBehaviour {
     {
         if(GameObject.Find("HIT")!= null && !(scene.Equals("GameOver")))
             Destroy(GameObject.Find("HIT"));
-        if(Time.timeScale==0)
+        if(Time.timeScale==0 && PlayerPrefs.GetInt("Pause") ==1)
         {
             PlayerPrefs.SetInt("Pause", 0);
             PlayerPrefs.Save();
